@@ -1,9 +1,9 @@
 <template>
-  <div class="todo-item" v-bind:class="{'is-completed': todo.done}">
+  <div class="todo-item" v-bind:class="{'is-completed': todo.completed}">
     <ul>
       <li>
         <input type="checkbox" v-on:change="markCompleted" />
-        {{ todo.task}}
+        {{ todo.title}}
         <button @click="$emit('del-todo', todo.id)" class="del">X</button>
       </li>
     </ul>
@@ -16,7 +16,7 @@ export default {
 
   methods: {
     markCompleted: function() {
-      this.todo.done = !this.todo.done;
+      this.todo.completed = !this.todo.completed;
     }
   }
 };
